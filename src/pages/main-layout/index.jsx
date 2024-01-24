@@ -1,21 +1,29 @@
 import { menuData } from "./data";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const MainLayout = () => {
+  const location = useLocation()?.pathname;
   return (
     <main className={styles.container}>
       <aside className={styles.sideBarContainer}>
-        <ul className={styles.menuList}>
+        <div className={styles.menuList}>
           {menuData?.map((items, index) => (
-            <li key={index}>
-              <Link to={`${items.navigate}`}>{items?.title}</Link>
-            </li>
+            <Link
+              to={`${items.navigate}`}
+              className={[
+                styles.tabs,
+                location === `/${items.navigate}` && styles.active,
+              ]?.join(" ")}
+              key={index}
+            >
+              {items?.title}
+            </Link>
           ))}
-        </ul>
+        </div>
       </aside>
       <article className={styles.outlet}>
-      <Outlet />
+        <Outlet />
       </article>
     </main>
   );

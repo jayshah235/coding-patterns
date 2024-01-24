@@ -5,7 +5,7 @@
 .sideBarContainer {
   background: #0f0f0f;
   padding: 20px;
-  flex-basis: 25%;
+  flex-basis: 22%;
   min-height: 100dvh;
 }
 
@@ -13,15 +13,33 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
-  a {
-    color: #f1f1f1;
-    font-size: 14px;
-    font-weight: 400;
-  }
 }
 
 .outlet {
   background: rgba(0, 0, 0, 0.05);
-  flex-basis: 75%;
+  flex-basis: 78%;
   padding: 20px;
+}
+
+.tabs {
+  padding: 20px;
+  transition: 0.3s ease-in;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+
+  &:hover {
+    background: white;
+    border-radius: 15px;
+    color: black;
+  }
+}
+
+.active {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
 }

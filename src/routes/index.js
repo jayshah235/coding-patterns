@@ -7,9 +7,13 @@ export const RouteObject = createBrowserRouter([
     element: "page does not exist...",
   },
   {
-    path: "codingpatterns/*",
+    path: "/",
     element: <lazy.LazyMainLayout />,
     children: [
+      {
+        path: "/",
+        element: <lazy.LazyAddCharts />,
+      },
       {
         path: "form-validation",
         element: <lazy.LazyForm />,
@@ -21,6 +25,10 @@ export const RouteObject = createBrowserRouter([
       {
         path: "addusers",
         element: <lazy.LazyAddUsers />,
+      },
+      {
+        path: "scroll",
+        element: <lazy.LazyScroll />,
       },
     ],
   },

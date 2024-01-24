@@ -1,6 +1,7 @@
 import { Input } from "../../components/form/input";
 import { Button } from "../../components/button";
 import { useForm } from "react-hook-form";
+import styles from "./style.module.scss";
 
 /*
   Note:: If there is a multi stepper form or very
@@ -24,81 +25,76 @@ const FormValidation = () => {
     reset();
   };
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}
-    >
-      <Input
-        label="First Name"
-        parentStyle={{ flexBasis: "48%" }}
-        {...register("fName", { required: "Please enter first name" })}
-        showErrors={errors?.fName}
-        errorMessage={errors?.fName?.message}
-      />
-      <Input
-        label="Middle Name"
-        parentStyle={{ flexBasis: "48%" }}
-        {...register("mName", { required: "Please enter middle name" })}
-        showErrors={errors?.mName}
-        errorMessage={errors?.mName?.message}
-      />
-      <Input
-        label="Last Name"
-        parentStyle={{ flexBasis: "48%" }}
-        {...register("lName", { required: "Please enter last name" })}
-        showErrors={errors?.lName}
-        errorMessage={errors?.lName?.message}
-      />
-      <Input
-        label="Email"
-        parentStyle={{ flexBasis: "48%" }}
-        type="email"
-        {...register("email", { required: "Please enter email" })}
-        showErrors={errors?.email}
-        errorMessage={errors?.email?.message}
-      />
-      <Input
-        label="Password"
-        parentStyle={{ flexBasis: "48%" }}
-        type="password"
-        {...register("password", { required: "Please enter password" })}
-        showErrors={errors?.password}
-        errorMessage={errors?.password?.message}
-      />
-      <Input
-        label="Date"
-        parentStyle={{ flexBasis: "48%" }}
-        type="date"
-        {...register("date", { required: "Please select date" })}
-        showErrors={errors?.date}
-        errorMessage={errors?.date?.message}
-      />
-      <Input
-        label="Time"
-        parentStyle={{ flexBasis: "48%" }}
-        type="time"
-        {...register("time", { required: "Please select time" })}
-        showErrors={errors?.time}
-        errorMessage={errors?.time?.message}
-      />
-      <Input
-        label="Account No."
-        parentStyle={{ flexBasis: "48%" }}
-        {...register("accNo", { required: "Please enter account number" })}
-        showErrors={errors?.accNo}
-        errorMessage={errors?.accNo?.message}
-      />
-      <Input
-        label="Pf No."
-        parentStyle={{ flexBasis: "48%" }}
-        {...register("pfNo", { required: "Please enter pf number" })}
-        showErrors={errors?.pfNo}
-        errorMessage={errors?.pfNo?.message}
-      />
-      <div>
-        <Button title="Submit" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.formWrapper}>
+        <Input
+          label="First Name"
+          {...register("fName", { required: "Please enter first name" })}
+          showErrors={errors?.fName}
+          errorMessage={errors?.fName?.message}
+        />
+        <Input
+          label="Middle Name"
+          {...register("mName", { required: "Please enter middle name" })}
+          showErrors={errors?.mName}
+          errorMessage={errors?.mName?.message}
+        />
+        <Input
+          label="Last Name"
+          {...register("lName", { required: "Please enter last name" })}
+          showErrors={errors?.lName}
+          errorMessage={errors?.lName?.message}
+        />
+        <Input
+          label="Email"
+          type="email"
+          {...register("email", { required: "Please enter email" })}
+          showErrors={errors?.email}
+          errorMessage={errors?.email?.message}
+        />
+        <Input
+          label="Password"
+          type="password"
+          {...register("password", { required: "Please enter password" })}
+          showErrors={errors?.password}
+          errorMessage={errors?.password?.message}
+        />
+        <Input
+          label="Date"
+          type="date"
+          {...register("date", { required: "Please select date" })}
+          showErrors={errors?.date}
+          errorMessage={errors?.date?.message}
+        />
+        <Input
+          label="Time"
+          type="time"
+          {...register("time", { required: "Please select time" })}
+          showErrors={errors?.time}
+          errorMessage={errors?.time?.message}
+        />
+        <Input
+          label="Account No."
+          {...register("accNo", { required: "Please enter account number" })}
+          showErrors={errors?.accNo}
+          errorMessage={errors?.accNo?.message}
+        />
+        <Input
+          label="Pf No."
+          type='number'
+          {...register("pfNo", { required: "Please enter pf number" })}
+          showErrors={errors?.pfNo}
+          errorMessage={errors?.pfNo?.message}
+        />
+           <Input
+          label="School Name"
+          {...register("schoolName", { required: "Please enter school name" })}
+          showErrors={errors?.schoolName}
+          errorMessage={errors?.schoolName?.message}
+        />
       </div>
-    </form>
+        <Button title="Submit" />
+      </form>
   );
 };
 

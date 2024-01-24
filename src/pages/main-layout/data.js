@@ -13,7 +13,7 @@ export const menuData = [
   },
   {
     title: "Infinite Scroll",
-    navigate: "",
+    navigate: "scroll",
   },
   {
     title: "Form Validations",

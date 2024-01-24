@@ -1,10 +1,5 @@
-.addUsersContainer{
+.formWrapper{
     display: grid;
     grid-template-columns: repeat(2, minmax(50px, 1fr));
     grid-gap: 1rem;
-}
-
-.btn{
-    display: block;
-    margin: auto;
 }

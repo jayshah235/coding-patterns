@@ -1,16 +1,17 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import { RouteObject } from "./routes";
 import { StoreProvider } from "./store/store";
+import { InitialLoadUi } from "./components/initial-load-ui-component";
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <StoreProvider>
-      <Suspense fallback={<>loading....</>}>
+      <Suspense fallback={<InitialLoadUi />}>
         <RouterProvider router={RouteObject} />
       </Suspense>
     </StoreProvider>

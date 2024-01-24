@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { UseFetch } from "../../services/fetchService";
+import Cards from "../../components/cards";
 import styles from "./styles.module.scss";
 
 /*
@@ -17,8 +18,6 @@ page. If there would be option of page and
 const ProductPage = () => {
   const { data, loading } = UseFetch("https://dummyjson.com/products?limit=40");
   const [page, setPage] = useState(1);
-  console.log(data, "data");
-
   const handlePageChange = (pageNumber) => {
     if (
       pageNumber > 0 &&
@@ -33,26 +32,21 @@ const ProductPage = () => {
       {loading && <p>loading....</p>}
       <section className={styles.cardContainer}>
         {data?.products
-          ?.slice(page * 10 - 10, page * 10)
+          ?.slice(page * 9 - 9, page * 9)
           ?.map((items, index) => (
-            <div key={index} className={styles.cards}>
-              <h3>{items.title}</h3>
-              <h3>{items?.brand}</h3>
-              <h3>{items?.category}</h3>
-              <figure>
-                <img src={items?.thumbnail} alt={items.title} />
-              </figure>
-              <p>{items?.description}</p>
-              <p>price: {items.price}</p>
-              <p>Stcok: {items.stock}</p>
-              <p>Discount: {items.discountPercentage}%</p>
-            </div>
+            <Cards
+              key={index}
+              image={items.thumbnail}
+              brand={items.brand}
+              description={items.description}
+              price={items.price}
+            />
           ))}
       </section>
 
       {data?.products?.length > 0 && (
         <ul className={styles.pagination}>
-          {[...Array(Math.floor(data?.products?.length / 10))].map((_, i) => (
+          {[...Array(Math.floor(data?.products?.length / 9))].map((_, i) => (
             <li key={i + 1} onClick={() => handlePageChange(i + 1)}>
               {i + 1}
             </li>

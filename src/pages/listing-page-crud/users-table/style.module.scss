@@ -21,4 +21,12 @@
   color: white;
   padding: 6px;
   border: none;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+.noRecords {
+  text-align: center;
+  margin: 30px;
 }
