@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+}
+
+.sideBarContainer {
+  background: #0f0f0f;
+  padding: 20px;
+  flex-basis: 25%;
+  min-height: 100dvh;
+}
+
+.menuList {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  a {
+    color: #f1f1f1;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.outlet {
+  background: rgba(0, 0, 0, 0.05);
+  flex-basis: 75%;
+  padding: 20px;
+}

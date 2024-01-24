@@ -1,0 +1,24 @@
+.tableContainer {
+  border: 1px solid;
+  width: 100%;
+  margin-top: 20px;
+
+  th,
+  td {
+    border: 1px solid;
+    padding: 8px 12px;
+    text-align: center;
+  }
+}
+
+.noRecordFound {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.deleteButton {
+  background: black;
+  color: white;
+  padding: 6px;
+  border: none;
+}
